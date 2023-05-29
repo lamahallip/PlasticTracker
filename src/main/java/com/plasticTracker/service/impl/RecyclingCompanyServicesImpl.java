@@ -30,7 +30,14 @@ public class RecyclingCompanyServicesImpl implements RecyclingCompanyServices {
 
     @Override
     public RecyclingCompany updateRecyclingCompany(RecyclingCompany recyclingCompany) {
-        return null;
+        RecyclingCompany recyclingCompanyExitting = recyclingCompanyRepository.findById(recyclingCompany.getId()).get();
+        recyclingCompanyExitting.setNom(recyclingCompany.getNom());
+        recyclingCompanyExitting.setAddress(recyclingCompany.getAddress());
+        recyclingCompanyExitting.setNumber(recyclingCompany.getNumber());
+        recyclingCompanyExitting.setEmail(recyclingCompany.getEmail());
+        recyclingCompanyExitting.setQuantity(recyclingCompany.getQuantity());
+
+        return recyclingCompanyRepository.save(recyclingCompanyExitting);
     }
 
     @Override
