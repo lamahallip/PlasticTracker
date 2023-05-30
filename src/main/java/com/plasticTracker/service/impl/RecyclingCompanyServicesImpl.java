@@ -4,6 +4,7 @@ import com.plasticTracker.model.RecyclingCompany;
 import com.plasticTracker.repository.RecyclingCompanyRepository;
 import com.plasticTracker.service.RecyclingCompanyServices;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 public class RecyclingCompanyServicesImpl implements RecyclingCompanyServices {
 
+    @Autowired
     private RecyclingCompanyRepository recyclingCompanyRepository;
+
+
     @Override
     public RecyclingCompany createRecyclingCompany(RecyclingCompany recyclingCompany) {
         return recyclingCompanyRepository.save(recyclingCompany);
@@ -30,6 +34,7 @@ public class RecyclingCompanyServicesImpl implements RecyclingCompanyServices {
 
     @Override
     public RecyclingCompany updateRecyclingCompany(RecyclingCompany recyclingCompany) {
+
         RecyclingCompany recyclingCompanyExitting = recyclingCompanyRepository.findById(recyclingCompany.getId()).get();
         recyclingCompanyExitting.setNom(recyclingCompany.getNom());
         recyclingCompanyExitting.setAddress(recyclingCompany.getAddress());

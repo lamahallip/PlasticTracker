@@ -4,6 +4,7 @@ import com.plasticTracker.model.PriceReference;
 import com.plasticTracker.repository.PriceReferenceRepository;
 import com.plasticTracker.service.PriceReferenceServices;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 public class PriceReferenceServicesImpl implements PriceReferenceServices {
 
+    @Autowired
     private PriceReferenceRepository priceReferenceRepository;
+
+
     @Override
     public PriceReference createPriceReference(PriceReference priceReference) {
         return priceReferenceRepository.save(priceReference);
@@ -30,6 +34,7 @@ public class PriceReferenceServicesImpl implements PriceReferenceServices {
 
     @Override
     public PriceReference updatePriceReference(PriceReference priceReference) {
+
         PriceReference priceReferenceExiting = priceReferenceRepository.findById(priceReference.getId()).get();
         priceReferenceExiting.setPrice(priceReferenceExiting.getPrice());
         priceReferenceExiting.setDate_updated(priceReferenceExiting.getDate_updated());
