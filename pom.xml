@@ -11,8 +11,14 @@
 	<groupId>com.plasticTracker</groupId>
 	<artifactId>PlasticTracker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>PlasticTracker</name>
 	<description>application backend de référencement des sociétés de recyclage de plastique et de suivi des prix de référence du plastique par type</description>
+	<modules>
+		<module>Domain</module>
+		<module>Application</module>
+		<module>Infra</module>
+	</modules>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
